@@ -1,6 +1,6 @@
 
-// Pislari Vadim 323CB TEMA 3
-// 14:25 inceputul 17.12.2018
+// Pislari Vadim 
+// 17.12.2018
 
 import java.io.File;
 import java.io.IOException;
