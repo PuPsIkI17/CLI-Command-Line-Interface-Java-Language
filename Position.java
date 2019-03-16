@@ -1,5 +1,5 @@
 
-// Pislari Vadim 323CB TEMA 3
+// Pislari Vadim
 
 // Singelton Pattern
 // Pozitia actuala a "userului"
