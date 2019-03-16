@@ -1,5 +1,5 @@
 
-// Pislari Vadim 323CB TEMA 3
+// Pislari Vadim 323CB
 
 import java.io.PrintWriter;
 
