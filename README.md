@@ -1,6 +1,5 @@
 # CLI-Command-Line-Interface (JAVA LANGUAGE)
 </br>Implementing a simplified shell to allow executing some modification/query commands on a file system (Java Language + Command, Singleton, Factory patterns)
-
 </br>Pislari Vadim -> Facultatea Automatica si Calculatoare -> Universitatea Politehnica Bucuresti
 
                                                      (Romanian Language)
@@ -9,41 +8,41 @@ CLI-ul (Command  Line Interface) oferă o modalitate foarte eficientă de lucru
 
 Comenzile pe care le suportă shell-ul sunt următoarele:    
 
-● ls [<path>] - Listează fișierele și directoarele din folderul <path> sau din folderul curent dacă nu este dat niciun folder ca argument.   
+●<i><b> ls [<path>]</i></b> - Listează fișierele și directoarele din folderul <path> sau din folderul curent dacă nu este dat niciun folder ca argument.   
 </br>  E1. Dacă <path> nu reprezintă un folder valid, se afișeaza eroarea “ls: <path>: No such  directory”.  Dacă este urmată de argumentul -R, comanda listează întreg subarborele cu rădăcina în directorul curent (sau folderul <path>, după caz). În acest caz, se  realizeaza o parcurgere  depth-first a subarborelui, alegând la fiecare pas nodurile în ordine lexicografică.
 
-● pwd - Afișează calea absolută (pornind de la folderul “/”) a folderului curent.    
+●<i><b> pwd</i></b> - Afișează calea absolută (pornind de la folderul “/”) a folderului curent.    
 
-● cd <path> - Setează folderul curent la <path>.   
+●<i><b> cd <path></i></b> - Setează folderul curent la <path>.   
 </br>  E1. Dacă acest folder nu există se afișeaza eroarea “cd: <path>: No such directory”.    
 
-● cp <source> <dest_folder> - Copiază fișierul/folderul dat prin calea <source> în folderul <dest_folder>.   
+●<i><b> cp <source> <dest_folder></i></b> - Copiază fișierul/folderul dat prin calea <source> în folderul <dest_folder>.   
 </br>  Notă: Dacă <source> reprezintă un folder, atunci se realizeaza o copiere recursivă (se copiaza și conținutul folderului <source>). 
 </br>  E1. Dacă path-ul <source> nu există, se afișeaza eroarea “cp: cannot copy <source>: No  such file or directory”.   
 </br>  E2. Dacă path-ul <dest_folder> nu există, se afișeaza eroarea “cp: cannot copy into  <dest_folder>: No such directory”. 
 </br>  E3. Dacă folderul destinație conține deja un fișier sau folder cu numele fișierului/  folderului ce se dorește copiat, se afișeaza eroarea “cp: cannot copy <source>: Node  exists at destination”, iar copierea nu are loc.    
 
-● mv <source> <dest_folder> - Mută fișierul/folderul dat prin calea <source> la calea <dest_folder>. 
+●<i><b> mv <source> <dest_folder></i></b> - Mută fișierul/folderul dat prin calea <source> la calea <dest_folder>. 
 </br>  Nota de la cp se  aplică și aici.  
 </br>  E1. Dacă path-ul <source> nu există, se afiseaza eroarea “mv: cannot move <source>: No  such file or directory”.
 </br>  E2. Dacă path-ul <dest_folder> nu există, se afiseaza eroarea “mv: cannot move into  <dest_folder>: No such directory”.
 </br>  E3. Dacă folderul destinație conține deja un fișier sau folder cu numele fișierului/  folderului ce se dorește mutat, se afiseaza eroarea “mv: cannot move <source>: Node  exists at destination”, iar mutarea nu are loc.  
 </br>  E4. Dacă se încearcă mutarea unui folder al cărui subarbore include current working  directory-ul, noul current working dir se  “muta” și el, păstrându-și poziția relativă față de folderul care se mută. 
   
-● rm <path> - Șterge fișierul/folderul (cu tot cu conținutul său) de la locația <path>.
+●<i><b> rm <path> </i></b> - Șterge fișierul/folderul (cu tot cu conținutul său) de la locația <path>.
 </br>  E1. Dacă fișierul/folderul nu există se afișeaza eroarea “rm: cannot remove <path>: No  such file or directory”.
 </br>  E2. Dacă se încearcă ștergerea unui folder al cărui subarbore include current working  directory-ul, comanda nu are niciun efect.     
 
-● touch <file_path> - Creează un nou fișier având calea <file_path>.
+●<i><b> touch <file_path></i></b> - Creează un nou fișier având calea <file_path>.
 </br>  E1. Dacă folderul în care se dorește crearea fișierului nu există, se afiseaza: “touch: <parent_path>: No such directory”, unde <parent_path> se obține din <file_path> prin  eliminarea token-ului ce reprezintă numele fișierului (Ex: /dir/file => /dir).   
 </br>  E2. Dacă un fișier/folder cu același nume există deja la calea dată de argument, se afișeaza eroarea “touch: cannot create file <file_absolute_path>: Node exists”. 
 
-● mkdir <folder_path> - Creează un nou folder având calea <folder_path>.   
+●<i><b> mkdir <folder_path></i></b> - Creează un nou folder având calea <folder_path>.   
 </br>  E1. Dacă folderul în care se dorește crearea fișierului nu există, se va afiseaza eroarea:  “mkdir: <parent_path>: No such directory”, unde <parent_path> se obține din <folder_path> prin  eliminarea token-ului ce reprezintă numele folderului ce se dorește creat.
 </br>  E2. Dacă un fișier/folder cu același nume există deja la calea dată de argument, se afiseaza eroarea “mkdir: cannot create directory <folder_absolute_path>: Node exists”.
 </br>  Notă: în cazul erorilor E2 de la comenzile touch și mkdir, se afișeaza căile absolute și  complete (fără token-uri de forma “.”, “..” sau care conțin ‘*’ ) ale fișierului, respectiv folderului care se doresc create. 
 
-●  grep “<regex>”  este folosită în conjuncție cu ls printr-un pipe “|”. Aceasta limiteaza conținutul folderelor listate de ls (sau ls -R) doar la acele elemente care fac match pe expresia regulată  <regex>. Exemplu: ls / | grep “[a-z]*”. 
+● <i><b> grep “<regex>”</i></b>  este folosită în conjuncție cu ls printr-un pipe “|”. Aceasta limiteaza conținutul folderelor listate de ls (sau ls -R) doar la acele elemente care fac match pe expresia regulată  <regex>. Exemplu: ls / | grep “[a-z]*”. 
 
 ● Comenzile ls, rm, touch și mkdir aplicate pe path-uri ce pot  conține ‘*’ (reprezentând orice șir de caractere). 
   
