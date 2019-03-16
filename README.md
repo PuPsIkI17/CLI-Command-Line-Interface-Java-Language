@@ -1,6 +1,7 @@
-# CLI-Command-Line-Interface-w
-Implementing a simplified shell to allow executing some modification/query commands on a file system (Java Language + Command, Singleton, Factory patterns)
-Pislari Vadim -> Facultatea Automatica si Calculatoare -> Universitatea Politehnica Bucuresti
+# CLI-Command-Line-Interface (JAVA LANGUAGE)
+</br>Implementing a simplified shell to allow executing some modification/query commands on a file system (Java Language + Command, Singleton, Factory patterns)
+
+</br>Pislari Vadim -> Facultatea Automatica si Calculatoare -> Universitatea Politehnica Bucuresti
 
                                                      (Romanian Language)
                                                      -----Descriere-----
@@ -9,39 +10,42 @@ CLI-ul (Command  Line Interface) oferă o modalitate foarte eficientă de lucru
 Comenzile pe care le suportă shell-ul sunt următoarele:    
 
 ● ls [<path>] - Listează fișierele și directoarele din folderul <path> sau din folderul curent dacă nu este dat niciun folder ca argument.   
-  E1. Dacă <path> nu reprezintă un folder valid, se afișeaza eroarea “ls: <path>: No such  directory”.  Dacă este urmată de argumentul -R, comanda listează întreg subarborele cu rădăcina în directorul curent (sau folderul <path>, după caz). În acest caz, se  realizeaza o parcurgere  depth-first a subarborelui, alegând la fiecare pas nodurile în ordine lexicografică.
+</br>  E1. Dacă <path> nu reprezintă un folder valid, se afișeaza eroarea “ls: <path>: No such  directory”.  Dacă este urmată de argumentul -R, comanda listează întreg subarborele cu rădăcina în directorul curent (sau folderul <path>, după caz). În acest caz, se  realizeaza o parcurgere  depth-first a subarborelui, alegând la fiecare pas nodurile în ordine lexicografică.
 
 ● pwd - Afișează calea absolută (pornind de la folderul “/”) a folderului curent.    
 
 ● cd <path> - Setează folderul curent la <path>.   
-  E1. Dacă acest folder nu există se afișeaza eroarea “cd: <path>: No such directory”.    
+</br>  E1. Dacă acest folder nu există se afișeaza eroarea “cd: <path>: No such directory”.    
 
 ● cp <source> <dest_folder> - Copiază fișierul/folderul dat prin calea <source> în folderul <dest_folder>.   
-  Notă: Dacă <source> reprezintă un folder, atunci se realizeaza o copiere recursivă (se copiaza și conținutul folderului <source>). 
-  E1. Dacă path-ul <source> nu există, se afișeaza eroarea “cp: cannot copy <source>: No  such file or directory”.   
-  E2. Dacă path-ul <dest_folder> nu există, se afișeaza eroarea “cp: cannot copy into  <dest_folder>: No such directory”. 
-  E3. Dacă folderul destinație conține deja un fișier sau folder cu numele fișierului/  folderului ce se dorește copiat, se afișeaza eroarea “cp: cannot copy <source>: Node  exists at destination”, iar copierea nu are loc.    
+</br>  Notă: Dacă <source> reprezintă un folder, atunci se realizeaza o copiere recursivă (se copiaza și conținutul folderului <source>). 
+</br>  E1. Dacă path-ul <source> nu există, se afișeaza eroarea “cp: cannot copy <source>: No  such file or directory”.   
+</br>  E2. Dacă path-ul <dest_folder> nu există, se afișeaza eroarea “cp: cannot copy into  <dest_folder>: No such directory”. 
+</br>  E3. Dacă folderul destinație conține deja un fișier sau folder cu numele fișierului/  folderului ce se dorește copiat, se afișeaza eroarea “cp: cannot copy <source>: Node  exists at destination”, iar copierea nu are loc.    
 
 ● mv <source> <dest_folder> - Mută fișierul/folderul dat prin calea <source> la calea <dest_folder>. 
-  Nota de la cp se  aplică și aici.  
-  E1. Dacă path-ul <source> nu există, se afiseaza eroarea “mv: cannot move <source>: No  such file or directory”.
-  E2. Dacă path-ul <dest_folder> nu există, se afiseaza eroarea “mv: cannot move into  <dest_folder>: No such directory”.
-  E3. Dacă folderul destinație conține deja un fișier sau folder cu numele fișierului/  folderului ce se dorește mutat, se afiseaza eroarea “mv: cannot move <source>: Node  exists at destination”, iar mutarea nu are loc.  
-  E4. Dacă se încearcă mutarea unui folder al cărui subarbore include current working  directory-ul, noul current working dir se  “muta” și el, păstrându-și poziția relativă față de folderul care se mută. 
+</br>  Nota de la cp se  aplică și aici.  
+</br>  E1. Dacă path-ul <source> nu există, se afiseaza eroarea “mv: cannot move <source>: No  such file or directory”.
+</br>  E2. Dacă path-ul <dest_folder> nu există, se afiseaza eroarea “mv: cannot move into  <dest_folder>: No such directory”.
+</br>  E3. Dacă folderul destinație conține deja un fișier sau folder cu numele fișierului/  folderului ce se dorește mutat, se afiseaza eroarea “mv: cannot move <source>: Node  exists at destination”, iar mutarea nu are loc.  
+</br>  E4. Dacă se încearcă mutarea unui folder al cărui subarbore include current working  directory-ul, noul current working dir se  “muta” și el, păstrându-și poziția relativă față de folderul care se mută. 
   
 ● rm <path> - Șterge fișierul/folderul (cu tot cu conținutul său) de la locația <path>.
-  E1. Dacă fișierul/folderul nu există se afișeaza eroarea “rm: cannot remove <path>: No  such file or directory”.
-  E2. Dacă se încearcă ștergerea unui folder al cărui subarbore include current working  directory-ul, comanda nu are niciun efect.     
+</br>  E1. Dacă fișierul/folderul nu există se afișeaza eroarea “rm: cannot remove <path>: No  such file or directory”.
+</br>  E2. Dacă se încearcă ștergerea unui folder al cărui subarbore include current working  directory-ul, comanda nu are niciun efect.     
 
 ● touch <file_path> - Creează un nou fișier având calea <file_path>.
-  E1. Dacă folderul în care se dorește crearea fișierului nu există, se afiseaza: “touch: <parent_path>: No such directory”, unde <parent_path> se obține din <file_path> prin  eliminarea token-ului ce reprezintă numele fișierului (Ex: /dir/file => /dir).   
-  E2. Dacă un fișier/folder cu același nume există deja la calea dată de argument, se afișeaza eroarea “touch: cannot create file <file_absolute_path>: Node exists”. 
-  ● mkdir <folder_path> - Creează un nou folder având calea <folder_path>.   
-  E1. Dacă folderul în care se dorește crearea fișierului nu există, se va afiseaza eroarea:  “mkdir: <parent_path>: No such directory”, unde <parent_path> se obține din <folder_path> prin  eliminarea token-ului ce reprezintă numele folderului ce se dorește creat.
-  E2. Dacă un fișier/folder cu același nume există deja la calea dată de argument, se afiseaza eroarea “mkdir: cannot create directory <folder_absolute_path>: Node exists”.
-  Notă: în cazul erorilor E2 de la comenzile touch și mkdir, se afișeaza căile absolute și  complete (fără token-uri de forma “.”, “..” sau care conțin ‘*’ ) ale fișierului, respectiv folderului care se doresc create. 
-  ●  grep “<regex>”  este folosită în conjuncție cu ls printr-un pipe “|”. Aceasta limiteaza conținutul folderelor listate de ls (sau ls -R) doar la acele elemente care fac match pe expresia regulată  <regex>. Exemplu: ls / | grep “[a-z]*”. 
-  ● Comenzile ls, rm, touch și mkdir aplicate pe path-uri ce pot  conține ‘*’ (reprezentând orice șir de caractere). 
+</br>  E1. Dacă folderul în care se dorește crearea fișierului nu există, se afiseaza: “touch: <parent_path>: No such directory”, unde <parent_path> se obține din <file_path> prin  eliminarea token-ului ce reprezintă numele fișierului (Ex: /dir/file => /dir).   
+</br>  E2. Dacă un fișier/folder cu același nume există deja la calea dată de argument, se afișeaza eroarea “touch: cannot create file <file_absolute_path>: Node exists”. 
+
+● mkdir <folder_path> - Creează un nou folder având calea <folder_path>.   
+</br>  E1. Dacă folderul în care se dorește crearea fișierului nu există, se va afiseaza eroarea:  “mkdir: <parent_path>: No such directory”, unde <parent_path> se obține din <folder_path> prin  eliminarea token-ului ce reprezintă numele folderului ce se dorește creat.
+</br>  E2. Dacă un fișier/folder cu același nume există deja la calea dată de argument, se afiseaza eroarea “mkdir: cannot create directory <folder_absolute_path>: Node exists”.
+</br>  Notă: în cazul erorilor E2 de la comenzile touch și mkdir, se afișeaza căile absolute și  complete (fără token-uri de forma “.”, “..” sau care conțin ‘*’ ) ale fișierului, respectiv folderului care se doresc create. 
+
+●  grep “<regex>”  este folosită în conjuncție cu ls printr-un pipe “|”. Aceasta limiteaza conținutul folderelor listate de ls (sau ls -R) doar la acele elemente care fac match pe expresia regulată  <regex>. Exemplu: ls / | grep “[a-z]*”. 
+
+● Comenzile ls, rm, touch și mkdir aplicate pe path-uri ce pot  conține ‘*’ (reprezentând orice șir de caractere). 
   
   
                                        ----Implementarea----
@@ -49,20 +53,20 @@ Comenzile pe care le suportă shell-ul sunt următoarele:   
 File (frunze) si Folder(subarbore), cu nodul principal (aflat in varful arborelui) "/", root. Fiecare 
 folder are cate un arraylist cu toate nodurile copii ale acestui folder. Pentru a traversa acest arbore 
 a fost creata o clasa Position cu o singura instanta (Singelton) care indica nodul actual la care se afla 
-user-ul
-    A fost creata cate o clasa pentru fiecare comanda. Ideile si functionalitatile acestor clase sunt.
-	1. Cd modifica nodul la care se afla Position cu nodul de la calea indicata. Se imparte 
+user-ul.
+</br>    A fost creata cate o clasa pentru fiecare comanda. Ideile si functionalitatile acestor clase sunt.
+</br>	1. Cd modifica nodul la care se afla Position cu nodul de la calea indicata. Se imparte 
 path-ul in sectiuni care au la margini "/", si se modifica succesiv cu nodul care are denumirea data;
-	2. Mkdir determina numele nodului care trebuie creat si calea la care se afla, se muta la calea 
+</br>	2. Mkdir determina numele nodului care trebuie creat si calea la care se afla, se muta la calea 
 indicata si creaza un folder. 
-	3. Touch are aceiasi implementare ca Mkdir doar ca se creaza un File;
-	4. Pwd afiseaza calea absoluta a nodului care il are setat Position. La fiecare creare a unui nod
+</br>	3. Touch are aceiasi implementare ca Mkdir doar ca se creaza un File;
+</br>	4. Pwd afiseaza calea absoluta a nodului care il are setat Position. La fiecare creare a unui nod
 se seteaza un parametru care indica calea absoluta;
- 	5. Cp determina numele nodului care trebuie creat, calea sursei si calea destinatiei. Se face
+ </br>	5. Cp determina numele nodului care trebuie creat, calea sursei si calea destinatiei. Se face
 un cd catre sursa si altul catre destinatie, si se realizeaza o crearea recursiva in destinatie a 
 tuturor nodurilor aflate in sursa;
-	6. Rm determina numele nodului care trebuie sters, calea catre el. Se face cd catre cale si se 
+</br>	6. Rm determina numele nodului care trebuie sters, calea catre el. Se face cd catre cale si se 
 sterge din arraylistul cu copii nodul cu denumirea determinata;
-	7. Mv realizeaza un cp cu aceiasi parametri, dupa care se realizeaza un rm pentru a se sterge sursa.
-	8. Ls realizeaza un cd catre calea primita dupa care afiseaza fie recusiv toate nodurile din arbore(-R),
+</br>	7. Mv realizeaza un cp cu aceiasi parametri, dupa care se realizeaza un rm pentru a se sterge sursa.
+</br>	8. Ls realizeaza un cd catre calea primita dupa care afiseaza fie recusiv toate nodurile din arbore(-R),
 sau toate nodurile din araylist - ul cu copii.
