@@ -47,7 +47,7 @@ Comenzile pe care le suportă shell-ul sunt următoarele:   
 ● Comenzile ls, rm, touch și mkdir aplicate pe path-uri ce pot  conține ‘*’ (reprezentând orice șir de caractere). 
   
   
-                                                       ----Implementarea----
+                                                   ----Implementarea----
   Metoda de implementare a proiectului a fost crearea unui arbore reprezentat prin 2 tipuri de noduri: 
 File (frunze) si Folder(subarbore), cu nodul principal (aflat in varful arborelui) "/", root. Fiecare 
 folder are cate un arraylist cu toate nodurile copii ale acestui folder. Pentru a traversa acest arbore 
